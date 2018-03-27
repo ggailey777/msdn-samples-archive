@@ -1,0 +1,95 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices m:DataServiceVersion="1.0" m:MaxDataServiceVersion="3.0" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata">
+    <Schema Namespace="NorthwindModel" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityType Name="Customer">
+        <Key>
+          <PropertyRef Name="CustomerID" />
+        </Key>
+        <Property Name="CustomerID" Type="Edm.String" Nullable="false" MaxLength="5" FixedLength="true" Unicode="true" />
+        <Property Name="CompanyName" Type="Edm.String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="true" />
+        <Property Name="ContactName" Type="Edm.String" MaxLength="30" FixedLength="false" Unicode="true" />
+        <Property Name="ContactTitle" Type="Edm.String" MaxLength="30" FixedLength="false" Unicode="true" />
+        <Property Name="Address" Type="Edm.String" MaxLength="60" FixedLength="false" Unicode="true" />
+        <Property Name="City" Type="Edm.String" MaxLength="15" FixedLength="false" Unicode="true" />
+        <Property Name="Region" Type="Edm.String" MaxLength="15" FixedLength="false" Unicode="true" />
+        <Property Name="PostalCode" Type="Edm.String" MaxLength="10" FixedLength="false" Unicode="true" />
+        <Property Name="Country" Type="Edm.String" MaxLength="15" FixedLength="false" Unicode="true" />
+        <Property Name="Phone" Type="Edm.String" MaxLength="24" FixedLength="false" Unicode="true" />
+        <Property Name="Fax" Type="Edm.String" MaxLength="24" FixedLength="false" Unicode="true" />
+        <NavigationProperty Name="Orders" Relationship="NorthwindModel.FK_Orders_Customers" ToRole="Orders" FromRole="Customers" />
+      </EntityType>
+      <EntityType Name="Order_Detail">
+        <Key>
+          <PropertyRef Name="OrderID" />
+          <PropertyRef Name="ProductID" />
+        </Key>
+        <Property Name="OrderID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="ProductID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="UnitPrice" Type="Edm.Decimal" Nullable="false" Precision="19" Scale="4" />
+        <Property Name="Quantity" Type="Edm.Int16" Nullable="false" />
+        <Property Name="Discount" Type="Edm.Single" Nullable="false" />
+        <NavigationProperty Name="Order" Relationship="NorthwindModel.FK_Order_Details_Orders" ToRole="Orders" FromRole="Order_Details" />
+      </EntityType>
+      <EntityType Name="Order">
+        <Key>
+          <PropertyRef Name="OrderID" />
+        </Key>
+        <Property Name="OrderID" Type="Edm.Int32" Nullable="false" p6:StoreGeneratedPattern="Identity" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+        <Property Name="CustomerID" Type="Edm.String" MaxLength="5" FixedLength="true" Unicode="true" />
+        <Property Name="EmployeeID" Type="Edm.Int32" />
+        <Property Name="OrderDate" Type="Edm.DateTime" />
+        <Property Name="RequiredDate" Type="Edm.DateTime" />
+        <Property Name="ShippedDate" Type="Edm.DateTime" />
+        <Property Name="ShipVia" Type="Edm.Int32" />
+        <Property Name="Freight" Type="Edm.Decimal" Precision="19" Scale="4" />
+        <Property Name="ShipName" Type="Edm.String" MaxLength="40" FixedLength="false" Unicode="true" />
+        <Property Name="ShipAddress" Type="Edm.String" MaxLength="60" FixedLength="false" Unicode="true" />
+        <Property Name="ShipCity" Type="Edm.String" MaxLength="15" FixedLength="false" Unicode="true" />
+        <Property Name="ShipRegion" Type="Edm.String" MaxLength="15" FixedLength="false" Unicode="true" />
+        <Property Name="ShipPostalCode" Type="Edm.String" MaxLength="10" FixedLength="false" Unicode="true" />
+        <Property Name="ShipCountry" Type="Edm.String" MaxLength="15" FixedLength="false" Unicode="true" />
+        <NavigationProperty Name="Customer" Relationship="NorthwindModel.FK_Orders_Customers" ToRole="Customers" FromRole="Orders" />
+        <NavigationProperty Name="Order_Details" Relationship="NorthwindModel.FK_Order_Details_Orders" ToRole="Order_Details" FromRole="Orders" />
+      </EntityType>
+      <Association Name="FK_Orders_Customers">
+        <End Type="NorthwindModel.Customer" Role="Customers" Multiplicity="0..1" />
+        <End Type="NorthwindModel.Order" Role="Orders" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Customers">
+            <PropertyRef Name="CustomerID" />
+          </Principal>
+          <Dependent Role="Orders">
+            <PropertyRef Name="CustomerID" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="FK_Order_Details_Orders">
+        <End Type="NorthwindModel.Order" Role="Orders" Multiplicity="1" />
+        <End Type="NorthwindModel.Order_Detail" Role="Order_Details" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Orders">
+            <PropertyRef Name="OrderID" />
+          </Principal>
+          <Dependent Role="Order_Details">
+            <PropertyRef Name="OrderID" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+    </Schema>
+    <Schema Namespace="NorthwindService" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityContainer Name="NorthwindEntities" m:IsDefaultEntityContainer="true" p6:LazyLoadingEnabled="true" xmlns:p6="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntitySet Name="Customers" EntityType="NorthwindModel.Customer" />
+        <EntitySet Name="Order_Details" EntityType="NorthwindModel.Order_Detail" />
+        <EntitySet Name="Orders" EntityType="NorthwindModel.Order" />
+        <AssociationSet Name="FK_Orders_Customers" Association="NorthwindModel.FK_Orders_Customers">
+          <End Role="Customers" EntitySet="Customers" />
+          <End Role="Orders" EntitySet="Orders" />
+        </AssociationSet>
+        <AssociationSet Name="FK_Order_Details_Orders" Association="NorthwindModel.FK_Order_Details_Orders">
+          <End Role="Order_Details" EntitySet="Order_Details" />
+          <End Role="Orders" EntitySet="Orders" />
+        </AssociationSet>
+      </EntityContainer>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

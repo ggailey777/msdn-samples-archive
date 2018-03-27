@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="87daea8a-ca8e-4a7a-a35d-62eeab8d487d" xmlns="urn:schemas-microsoft-com:xml-dataservicemap">
+  <MetadataSources>
+    <MetadataSource Address="http://feeds.sqlpass.org/public/events/OratorDataService.svc/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.edmx" MetadataType="Edmx" ID="65f92078-ba9c-4c1e-ae03-5c9402fbcc51" SourceId="1" SourceUrl="http://feeds.sqlpass.org/public/events/OratorDataService.svc/" />
+  </Metadata>
+  <Extensions />
+  <Parameters>
+    <Parameter Name="ClientAssemblyReference" Value="C:\Program Files (x86)\Microsoft SDKs\Microsoft Data Framework\Phone\v7.1\bin\System.Data.Services.Client.dll" />
+    <Parameter Name="UseDataServiceCollection" Value="true" />
+    <Parameter Name="Version" Value="2.0" />
+  </Parameters>
+</ReferenceGroup>

@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Deployment xmlns="http://schemas.microsoft.com/windowsphone/2009/deployment" AppPlatformVersion="7.1">
+  <App xmlns="" ProductID="{271f6758-47cf-47d3-a5d0-ba6e5ae3b6f9}" Title="PASS Event Browser" RuntimeType="Silverlight" Version="1.0.0.0" Genre="apps.normal" Author="SQLPassBrowser author" Description="Sample description" Publisher="SQLPassBrowser">
+    <IconPath IsRelative="true" IsResource="false">Images\PassAppIcon.png</IconPath>
+    <Capabilities>
+      <Capability Name="ID_CAP_NETWORKING" />
+      <Capability Name="ID_CAP_WEBBROWSERCOMPONENT" />
+    </Capabilities>
+    <Tasks>
+      <DefaultTask Name="_default" NavigationPage="MainPage.xaml" />
+    </Tasks>
+    <Tokens>
+      <PrimaryToken TokenID="SQLPassBrowserToken" TaskName="_default">
+        <TemplateType5>
+          <BackgroundImageURI IsRelative="true" IsResource="false">Images\PassTileBackground.png</BackgroundImageURI>
+          <Count>0</Count>
+          <Title>Events Browser</Title>
+        </TemplateType5>
+      </PrimaryToken>
+    </Tokens>
+  </App>
+</Deployment>

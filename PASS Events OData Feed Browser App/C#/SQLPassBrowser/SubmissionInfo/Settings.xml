@@ -1,0 +1,6 @@
+<MarketplaceDetails>
+  <SmallAppTile>PassSmallTitle.png</SmallAppTile>
+  <LargeAppTile>PassTileBackground.png</LargeAppTile>
+  <PCAppTile>PassLargePC.png</PCAppTile>
+  <ScreenShots>EventsList.png;SessionFilters.png;SessionSearch.png;Sessions.png;SessionDetails.png;SessionDescription.png;SessionSpeaker.png;;</ScreenShots>
+</MarketplaceDetails>

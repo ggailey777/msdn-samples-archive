@@ -1,0 +1,352 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/9bf1b74c-1640-46af-84d3-e440c8f95162Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Send Push Notifications from an OData Service by Using Notification Hubs (v2.1)</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Send Push Notifications from an OData Service by Using Notification Hubs (v2.1)</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Microsoft Azure, WCF Data Services, OData, push notifications, Windows Store app, Windows Azure Notification Hubs
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            WCF Data Services, OData, push notifications, Windows Store app, Windows Azure Notification Hubs, Auto-sync
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web, Cloud, Data, Windows RT
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">1/2/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/Send-Push-Notifications-bb7e1c39">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h2>Introduction</h2>
+<p>There are three core functionalities required by cloud-connected mobile device apps: data access and storage, authentication, and push notifications. As a REST-based protocol, the Open Data Protocol (OData) is any ideal way to exchange data with mobile device
+ apps. However, as a data exchange protocol, it doesn't provide any built-in support for authentication or notifications. Windows Azure Notification Hubs is a Windows Azure service that enables you to send notifications to mobile apps running on all major device
+ platforms. This sample demonstrates how to use Notification Hubs to send notifications from an OData service to a Windows Store app. This solution contains two projects: 1) an ASP.NET application that hosts an OData feed implemented by using WCF Data Services
+ and 2) a Windows Store app that consumes the OData feed and registers for feed change notifications. Feed change notifications are performed by the OData service and client registration is enabled by service operations.</p>
+<h2>Notes on Version 2.1</h2>
+<p>The current version has been modified from the previous version as follows:</p>
+<ul>
+<li>Added loopback detection/delay (off by default) to prevent auto-update notifications on self-updates.
+</li><li>Fixed a bug with autosync notifications that causes an exception when there was more than one change notification received.
+</li><li>Fixed a bug that displayed a weird message dialog when changing orders. </li><li>Upgraded to NuGet package manager version 2.7.41101.299. </li><li>Upgraded to WCF Data Services 5.6.0 Tools. </li></ul>
+<h2>Notes on Version 2.0</h2>
+<p>This version has been modified from the previous version as follows:</p>
+<ul>
+<li>Users can now choose between standard toast notifications or &quot;auto-update&quot; notifications for feed changes.
+</li><li>Auto-update notifications are raw notifications that are sent by the OData service with enough information to enable the client to sync the feed to get the latest changes.
+</li><li>When the client receives an &quot;auto-update&quot; notification, the user is asked if she wants to update the feed.
+</li><li>The OData service supports creating both toast and raw notifications. </li><li>The OData service sends both raw and toast notifications for every feed change. &nbsp;
+</li></ul>
+<h2>Prerequisites</h2>
+<ul>
+<li>Windows Azure account (you can get a trial account <a href="http://www.windowsazure.com/en-us/pricing/free-trial/" >
+here</a>) </li><li>Windows Store account (this is required to register the Windows Store app for push notifications)
+</li><li>Visual Studio 2012 Professional or higher edition (running on Windows 8) that supports:
+<ul>
+<li>Web application development </li><li>Windows Store app development (this sample was tested on a Windows 8 computer)
+</li><li>Local database (I think that all developer editions have this) </li></ul>
+</li><li><a href="http://www.microsoft.com/web/gallery/install.aspx?appid=IISExpress" >IIS Express 7.5</a> (included in
+<a href="http://www.microsoft.com/web/webmatrix">WebMatrix</a>) </li><li><a title="WCF Data Services 5.6.0 RTM Tools" href="http://www.microsoft.com/en-us/download/details.aspx?id=39373" >WCF Data Services 5.6.0 Tools</a>
+</li><li>NuGet Package Manager add-in for Visual Studio version 2.7.41101.299 or higher.
+</li></ul>
+<blockquote>
+<p><span style="font-size:x-small"><strong>Notes:</strong></span></p>
+<p>This sample requires NuGet packages that are not included in the download. (If included, the sample download would be 20MB.) The missing packages are downloaded automatically when the project is built and when the service reference is updated.</p>
+<p><span style="color:#ff0000"><em>Do not try to load the client project until you are instructed to do so. Doing so makes it very dificult to load the correct NuGet packages.</em></span></p>
+<p>Building this project means that you accept the terms of those NuGet projects.</p>
+</blockquote>
+<h2>Configuring the Sample</h2>
+<p>You must complete the following steps to be able to run this sample on your local computer:</p>
+<h3>Get the project running on your local computer</h3>
+<p>First we need to get the project configured to run on your machine.</p>
+<ol>
+<li>Open the NorthwindServiceNotifications.sln solution file in Visual Studio 2012, and rebuild the project.
+<blockquote><strong>Note:</strong> the NorthwindClient is in an unloaded state&mdash;but this is by design.</blockquote>
+</li><li>Press F5 to start the data service and verify that the service document is displayed.
+<br>
+This makes sure that IIS Express is running. </li><li>(Optional) Browse to the following URI and make sure that the service can load the Customers feed data from the database:
+<br>
+<a title="http://localhost:65472/Northwind.svc/Customers" href="http://localhost:65472/Northwind.svc/Customers">http://localhost:65472/Northwind.svc/Customers</a>
+</li><li>Stop the debugging, right-click the NorthwindClient project and click <strong>
+Reload Project</strong>. </li><li>Right-click NorthwindClient and click <strong>Set as Startup Project</strong>.
+</li><li>Expand the NorthwindClient project, expand <strong>Service References</strong>, then right-click
+<strong>Northwind</strong> and click <strong>Update Service Reference</strong>. <br>
+<a href="$image_thumb15[2].png"><img id="94675" title="image_thumb15" src="description/UpdateNorthwindReference.png" border="0" alt="image_thumb15" style="margin:0px; border:0px currentcolor; display:inline"></a>
+</li><li>Rebuild the entire solution. <br>
+At this point the app should run and be able to access the local OData service, but there is no notification functionality.
+</li></ol>
+<h3>Associate the client app with the Windows Store</h3>
+<p>You need to create a new app in the Windows Store and associate this project with that app to be able to send notifications to the app.</p>
+<ol>
+<li>
+<p>If you have not already registered your app, navigate to the <a href="http://go.microsoft.com/fwlink/p/?linkid=266582&amp;clcid=0x409">
+Submit an app page</a> in the Dev Center for Windows Store apps, log on with your Microsoft account, and then click
+<strong>App name</strong>.</p>
+<p><a href="$image_thumb6[2].png"><img id="94676" title="image_thumb6" src="description/mobile-services-submit-win8-app.png" border="0" alt="image_thumb6" style="margin:0px; border:0px currentcolor; display:inline"></a></p>
+</li><li>
+<p>Type a name for your app in <strong>App name</strong>, click <strong>Reserve app name</strong>, and then click
+<strong>Save</strong>.</p>
+<blockquote><strong>Note:</strong> Don&rsquo;t bother trying <em>NorthwindNotifications</em>&mdash;I already have it. Just append your name, if you want to make a unique name.</blockquote>
+</li><li>In Visual Studio 2012, right-click the project in Solution Explorer, click <strong>
+Store</strong>, and then click <strong>Associate App with the Store...</strong>. <br>
+<a href="$image_thumb3[2].png"><img id="94677" title="image_thumb3" src="description/AssociateAppWithStore.png" border="0" alt="image_thumb3" style="margin:0px; border:0px currentcolor; display:inline"></a>
+</li><li>
+<p>In the <strong>Associate Your App with the Windows Store</strong> wizard, log in with your Microsoft account.</p>
+</li><li>
+<p>Click the app that you registered in step 2, click <strong>Next</strong>, and then click
+<strong>Associate</strong>.</p>
+</li><li>
+<p>Back in the Windows Dev Center page for your new app, click <strong>Services</strong>.</p>
+<p><a href="$image_thumb9[2].png"><img id="94678" title="image_thumb9" src="description/mobile-services-win8-edit-app.png" border="0" alt="image_thumb9" width="600" height="408" style="margin:0px; border:0px currentcolor; display:inline"></a></p>
+</li><li>
+<p>In the <strong>Services</strong> page, click <strong>Live Services site</strong> under
+<strong>Windows Azure Mobile Services</strong>.</p>
+<p><a href="$image_thumb12[2].png"><img id="94679" title="image_thumb12" src="description/mobile-services-win8-edit2-app.png" border="0" alt="image_thumb12" width="600" height="397" style="margin:0px; border:0px currentcolor; display:inline"></a></p>
+</li><li>
+<p>Click <strong>Authenticating your service</strong> and make a note of the values of
+<strong>Client secret</strong> and <strong>Package security identifier (SID)</strong>.</p>
+<p><a href="$image_thumb15[1][3].png"><img id="94680" title="image_thumb15[1]" src="description/mobile-services-win8-app-push-auth.png" border="0" alt="image_thumb15[1]" width="600" height="297" style="margin:0px; border:0px currentcolor; display:inline"></a>
+<br>
+You will use this information in the next step to enable Notification Hubs to send push notifications to your app.</p>
+</li></ol>
+<h2>Create and configure the notification hub</h2>
+<p>Now that the Windows Store client app is configured to receive push notifications, we can use this info to register the app with Notification Hubs.</p>
+<ol>
+<li>Using the client secret and package SID from the previous step, complete the section
+<a href="http://www.windowsazure.com/en-us/manage/services/notification-hubs/getting-started-windows-dotnet/#configure-hub">
+Configure your Notification Hub</a> in the Getting Started with Notification Hubs tutorial.
+</li><li>In the <a href="http://code.msdn.microsoft.com/Send-Push-Notifications-bb7e1c39/https://manage.windowsazure.com/">Windows Azure Management Portal</a>, go to your new hub and in the
+<strong>Dashboard</strong>, click <strong>Connection Information</strong>. <br>
+<a href="$image_thumb18[2].png"><img id="94681" title="image_thumb18" src="description/GetHubConnectionInfo.png" border="0" alt="image_thumb18" width="600" height="386" style="margin:0px; border:0px currentcolor; display:inline"></a>
+</li><li>Copy the connection string for shared access signature named <strong>DefaultFullSharedAccessSignature</strong>.
+<br>
+<a href="$image_thumb21[2].png"><img id="94682" title="image_thumb21" src="description/HubsSASConnection.png" border="0" alt="image_thumb21" width="600" height="373" style="margin:0px; border:0px currentcolor; display:inline"></a>
+</li><li>Back in Visual Studio, in the NorthwindServiceNotifications project, open the Web.config file, locate the
+<strong>AppSettings</strong> element, and replace <em>value</em> of the elements with
+<em>key</em> <span style="font-family:Courier New">&quot;Microsoft.ServiceBus.ConnectionString&quot;</span> and
+<span style="font-family:Courier New">&quot;Microsoft.ServiceBus.NotificationHubName</span>&quot; with the hub connection and name, respective.
+</li><li>Open the Northwind.svc.cs file and uncomment the code in the public constructor, which looks like this:<br>
+<div class="scriptcode">
+<div class="pluginEditHolder" pluginCommand="mceScriptCode">
+<div class="title"><span>C#</span></div>
+<div class="pluginLinkHolder"><span class="pluginEditHolderLink">Edit</span>|<span class="pluginRemoveHolderLink">Remove</span></div>
+<span class="hidden">csharp</span>
+<pre class="hidden">// Create the client in the constructor.
+public Northwind()
+{
+    // Create a new Notification Hub client using the stored info.
+    hubClient = NotificationHubClient
+        .CreateClientFromConnectionString(
+        ConfigurationManager.AppSettings[&quot;Microsoft.ServiceBus.ConnectionString&quot;],
+        ConfigurationManager.AppSettings[&quot;Microsoft.ServiceBus.NotificationHubName&quot;]
+        );
+}</pre>
+<div class="preview">
+<pre class="csharp"><span class="cs__com">//&nbsp;Create&nbsp;the&nbsp;client&nbsp;in&nbsp;the&nbsp;constructor.</span>&nbsp;
+<span class="cs__keyword">public</span>&nbsp;Northwind()&nbsp;
+{&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs__com">//&nbsp;Create&nbsp;a&nbsp;new&nbsp;Notification&nbsp;Hub&nbsp;client&nbsp;using&nbsp;the&nbsp;stored&nbsp;info.</span>&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;hubClient&nbsp;=&nbsp;NotificationHubClient&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.CreateClientFromConnectionString(&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ConfigurationManager.AppSettings[<span class="cs__string">&quot;Microsoft.ServiceBus.ConnectionString&quot;</span>],&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ConfigurationManager.AppSettings[<span class="cs__string">&quot;Microsoft.ServiceBus.NotificationHubName&quot;</span>]&nbsp;
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);&nbsp;
+}</pre>
+</div>
+</div>
+</div>
+This code creates a new instance of the Notification Hubs client. </li><li>Rebuild the solution, then right-click the NorthwindClient project and click <strong>
+Deploy</strong>. <br>
+At this point, the sample data service is able to register users for notification and send notifications in response to updates in the registered feed.
+</li></ol>
+<h2>Running the Sample</h2>
+<h3>Toast Notifications</h3>
+<ol>
+<li>Press F5 to run the Windows Store app. Northwind sales data is displayed. </li><li>Right-click or swipe-up to display the bottom app bar, choose <strong>Order_Details</strong>, choose
+<strong>Toast</strong>, and click <strong>Add</strong>.&nbsp; <br>
+<a href="$image_thumb24[2].png"></a><br>
+After successful registration, the registration ID assigned by Notification Hubs is displayed.
+</li><li>Perform one or all of the following updates in the Order_Details feed:
+<ul>
+<li>Select an existing item and update the item quantity. </li><li>Click the <strong>Add </strong>button under the items list, select a product from the combo box, set the quantity of the new item.
+</li><li>Select an existing item and click the <strong>Delete</strong> button. </li></ul>
+</li><li>Right-click or swipe-down to display the top app bar and click the <strong>Save</strong> button.
+<br>
+<a href="$image_thumb[2][2].png"></a><br>
+This sends a change request to the data service, which in turn triggers one toast notification for each changed item in the order.
+</li></ol>
+<h3>Auto-Update Notifications</h3>
+<ol>
+<li>Press F5 to run the Windows Store app. Northwind sales data is displayed. </li><li>Right-click or swipe-up to display the bottom app bar, choose <strong>Order_Details</strong>, choose
+<strong>Auto-update</strong>, and click <strong>Add</strong>.&nbsp; <br>
+<a href="$image_thumb24[2].png"><img id="106390" title="image_thumb24" src="description/RegisterFeedRaw1.png" border="0" alt="image_thumb24" width="600" height="389" style="margin:0px; border:0px currentcolor; display:inline"></a><br>
+After successful registration, the registration ID assigned by Notification Hubs is displayed.
+</li><li>Perform one or all of the following updates in the Order_Details feed:
+<ul>
+<li>Select an existing item and update the item quantity. </li><li>Click the <strong>Add </strong>button under the items list, select a product from the combo box, set the quantity of the new item.
+</li><li>Select an existing item and click the <strong>Delete</strong> button. </li></ul>
+</li><li>Right-click or swipe-down to display the top app bar and click the <strong>Save</strong> button.
+<br>
+<a href="$image_thumb[2][2].png"><img id="106391" title="image_thumb[2]" src="description/RegisterFeedResultsRaw2.png" border="0" alt="image_thumb[2]" width="600" height="395" style="margin:0px; border:0px currentcolor; display:inline"></a><br>
+This sends a change request to the data service, which in turn triggers one raw notification for each changed item in the order, which is processed by the client as a request to update the feed.<br>
+Note that the client only displays information about the first change and ignores the other (this was a scoping design decision).
+</li></ol>
+<h2>Learn More</h2>
+<ul>
+<li><a href="http://code.msdn.microsoft.com/Send-Push-Notifications-bb7e1c39/https://www.windowsazure.com/en-us/documentation/services/notification-hubs/">Windows Azure Notification Hubs</a>
+</li><li><a href="http://msdn.microsoft.com/en-us/library/hh487257%28v=vs.103%29.aspx">WCF Data Services</a>
+</li><li><a href="http://msdn.microsoft.com/en-US/windows/apps/br229519">Windows Store app development</a>
+</li></ul>
+
+</div>
+
+
+    </div>
+</body>
+</html>

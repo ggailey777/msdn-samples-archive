@@ -1,0 +1,225 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/1c1e217c-1475-400e-91a7-b2be1bd6efa0Combined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Visual Basic Version of the Azure Mobile Services-Generated Quickstart</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Visual Basic Version of the Azure Mobile Services-Generated Quickstart</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Visual Basic .NET, Windows Azure Mobile Services, Windows Store app
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            mobile application development, Windows Azure Mobile Services
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Web, Cloud, Data, Windows RT
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">4/21/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/Visual-Basic-Version-of-e8d78a3b">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h1>Introduction</h1>
+<p>Azure Mobile Services is a Microsoft Azure service offering designed to make it easy to create highly-functional mobile apps using Azure. Mobile Services brings together a set of Azure services that enable backend capabilities for mobile apps. Mobile Services
+ provides a rich programming model, including client libraries for devices, a JavaScript library for server-side business logic, authentication, scheduled execution,&nbsp;and REST APIs.</p>
+<p><img id="77086" src="description/mobile-services-diagram.png" alt="" width="600" height="379">&nbsp;</p>
+<p style="padding-left:30px">&nbsp;</p>
+<h1>Why This Sample?</h1>
+<p>This Windows Store app sample in Visual Studio 2012 is an equivalent Visual Basic project for the project that is currently generated by the Windows Azure Mobile Services quickstart in the Azure Management Portal. You can see how this works (for C# and JavaScript
+ projects) by completing the <a href="http://code.msdn.microsoft.com/Visual-Basic-Version-of-e8d78a3b/http://code.msdn.microsoft.com/Visual-Basic-Version-of-e8d78a3b/https://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started/">
+Get started with Mobile Services tutorial</a>.</p>
+<p style="padding-left:30px"><strong>Note:</strong> To complete the tutorial, you need an Azure account. For details, see
+<a href="http://code.msdn.microsoft.com/Visual-Basic-Version-of-e8d78a3b/../create-a-windows-azure-account/" >Create a Windows Azure account and enable preview features</a>.</p>
+<h1>Prerequisites</h1>
+<p>Before you can build and run this Windows Store app sample that stores data in Mobile Services, you need to have the following:</p>
+<ol>
+<li>Visual Studio 2012 Express for Windows Store apps (or an equivalent verison of Visual Studio that supports Windows Store app development).
+</li><li>An active Azure subscription. </li></ol>
+<p>Before you get started, you must also have created a mobile service. You can do this by following the first part of one of these tutorials:</p>
+<ul>
+<li><a href="http://code.msdn.microsoft.com/Visual-Basic-Version-of-e8d78a3b/https://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started" >Get started with Mobile Services</a>
+</li><li><a href="http://code.msdn.microsoft.com/Visual-Basic-Version-of-e8d78a3b/http://code.msdn.microsoft.com/Visual-Basic-Version-of-e8d78a3b/https://www.windowsazure.com/en-us/develop/mobile/tutorials/get-started-with-data-dotnet/" >Get started with data in Mobile Services</a>
+</li></ul>
+<h1>Configure the Project</h1>
+<p>Before you can run the project, you must configure the app to communicate with your mobile service. To do this, you need to get information for the mobile service from the Management Portal and use this to update the project.</p>
+<ol>
+<li>In the Management Portal, click <strong>Mobile Services</strong>, and then click the mobile service you just created.
+</li><li>
+<p>Click the <strong>Dashboard</strong> tab and make a note of the <strong>Site URL</strong>, then click
+<strong>Manage keys</strong> and make a note of the <br>
+<strong>Application key</strong>.</p>
+<br>
+<p><img id="67142" src="description/mobile-dashboard-tab.png" alt="" width="600" height="416"></p>
+<br>
+<p>You will need these values when accessing the mobile service from your app code.</p>
+</li><li>
+<p>In Visual Studio, open the file App.xaml.vb, uncomment the code that defines the
+<strong>MobileService</strong> variable, and supply the URL and application key from the mobile service in the
+<strong>MobileServiceClient</strong> constructor, in that order.</p>
+<p>This creates a new instance of MobileServiceClient that is used to access your mobile service.</p>
+</li></ol>
+<h1>Run the App</h1>
+<ol>
+<li>In Visual Studio, press the F5 key to run the app. </li><li>As before, type text in <strong>Insert a TodoItem</strong>, and then click <strong>
+Save</strong>.<br>
+This sends a new item as an insert to the mobile service. </li><li>In the <a href="http://code.msdn.microsoft.com/Visual-Basic-Version-of-e8d78a3b/https://manage.windowsazure.com/">Management Portal</a>, click
+<strong>Mobile Services</strong>, and then click your mobile service. </li><li>Click the <strong>Data</strong> tab, then click <strong>Browse</strong>.<br>
+Notice that the <strong>TodoItem</strong> table now contains data, with id values generated by Mobile Services, and that columns have been automatically added to the table to match the TodoItem class in the app.
+</li><li>In the app, check one of the items in the list, then click the <strong>Refresh</strong> button.
+<br>
+Notice that the checked item now disappears from the list. Each refresh results in a round-trip to the mobile service, which now returns filtered data.
+</li><li>Go back to the Browse tab in the portal and click <strong>Refresh</strong>.<br>
+Notice that the complete value has changed from <strong>false</strong> to <strong>
+true</strong>. </li></ol>
+
+</div>
+
+
+    </div>
+</body>
+</html>

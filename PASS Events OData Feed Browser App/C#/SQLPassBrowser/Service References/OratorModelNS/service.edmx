@@ -1,0 +1,155 @@
+﻿<edmx:Edmx Version="1.0" xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+  <edmx:DataServices xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="1.0">
+    <Schema Namespace="OratorModelNS" xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices" xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" xmlns="http://schemas.microsoft.com/ado/2008/09/edm">
+      <EntityContainer Name="OratorEntities" p7:LazyLoadingEnabled="true" m:IsDefaultEntityContainer="true" xmlns:p7="http://schemas.microsoft.com/ado/2009/02/edm/annotation">
+        <EntitySet Name="Events" EntityType="OratorModelNS.Event" />
+        <EntitySet Name="Sessions" EntityType="OratorModelNS.Session" />
+        <EntitySet Name="SessionSpeakers" EntityType="OratorModelNS.SessionSpeaker" />
+        <EntitySet Name="SessionFiles" EntityType="OratorModelNS.SessionFile" />
+        <AssociationSet Name="FK_PASS_OData_Orator_Session_PASS_OData_Orator_Event" Association="OratorModelNS.FK_PASS_OData_Orator_Session_PASS_OData_Orator_Event">
+          <End Role="PASS_OData_Orator_Event" EntitySet="Events" />
+          <End Role="PASS_OData_Orator_Session" EntitySet="Sessions" />
+        </AssociationSet>
+        <AssociationSet Name="FK_PASS_OData_Orator_SessionSpeaker_PASS_OData_Orator_Event" Association="OratorModelNS.FK_PASS_OData_Orator_SessionSpeaker_PASS_OData_Orator_Event">
+          <End Role="PASS_OData_Orator_Event" EntitySet="Events" />
+          <End Role="PASS_OData_Orator_SessionSpeaker" EntitySet="SessionSpeakers" />
+        </AssociationSet>
+        <AssociationSet Name="FK_PASS_OData_Orator_SessionSpeaker_PASS_OData_Orator_Session" Association="OratorModelNS.FK_PASS_OData_Orator_SessionSpeaker_PASS_OData_Orator_Session">
+          <End Role="PASS_OData_Orator_Session" EntitySet="Sessions" />
+          <End Role="PASS_OData_Orator_SessionSpeaker" EntitySet="SessionSpeakers" />
+        </AssociationSet>
+        <AssociationSet Name="FK_PASS_OData_Orator_SessionFile_PASS_OData_Orator_Event" Association="OratorModelNS.FK_PASS_OData_Orator_SessionFile_PASS_OData_Orator_Event">
+          <End Role="Event" EntitySet="Events" />
+          <End Role="PASS_OData_Orator_SessionFile" EntitySet="SessionFiles" />
+        </AssociationSet>
+        <AssociationSet Name="FK_PASS_OData_Orator_SessionFile_PASS_OData_Orator_Session" Association="OratorModelNS.FK_PASS_OData_Orator_SessionFile_PASS_OData_Orator_Session">
+          <End Role="Session" EntitySet="Sessions" />
+          <End Role="PASS_OData_Orator_SessionFile" EntitySet="SessionFiles" />
+        </AssociationSet>
+      </EntityContainer>
+      <EntityType Name="Event">
+        <Key>
+          <PropertyRef Name="EventID" />
+        </Key>
+        <Property Name="EventID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="EventName" Type="Edm.String" Nullable="false" MaxLength="256" Unicode="true" FixedLength="false" />
+        <Property Name="EventURL" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="EventStartDate" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="EventEndDate" Type="Edm.DateTime" Nullable="true" />
+        <NavigationProperty Name="PASS_OData_Orator_Session" Relationship="OratorModelNS.FK_PASS_OData_Orator_Session_PASS_OData_Orator_Event" FromRole="PASS_OData_Orator_Event" ToRole="PASS_OData_Orator_Session" />
+        <NavigationProperty Name="PASS_OData_Orator_SessionSpeaker" Relationship="OratorModelNS.FK_PASS_OData_Orator_SessionSpeaker_PASS_OData_Orator_Event" FromRole="PASS_OData_Orator_Event" ToRole="PASS_OData_Orator_SessionSpeaker" />
+        <NavigationProperty Name="PASS_OData_Orator_SessionFile" Relationship="OratorModelNS.FK_PASS_OData_Orator_SessionFile_PASS_OData_Orator_Event" FromRole="Event" ToRole="PASS_OData_Orator_SessionFile" />
+      </EntityType>
+      <EntityType Name="Session">
+        <Key>
+          <PropertyRef Name="SessionID" />
+        </Key>
+        <Property Name="EventID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="SessionID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="SessionName" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="true" FixedLength="false" />
+        <Property Name="SessionDescription" Type="Edm.String" Nullable="true" MaxLength="3000" Unicode="true" FixedLength="false" />
+        <Property Name="SessionDateTimeStart" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="SessionDateTimeEnd" Type="Edm.DateTime" Nullable="true" />
+        <Property Name="SessionCategory" Type="Edm.String" Nullable="true" MaxLength="128" Unicode="true" FixedLength="false" />
+        <Property Name="SessionTrack" Type="Edm.String" Nullable="true" MaxLength="128" Unicode="true" FixedLength="false" />
+        <Property Name="SessionCode" Type="Edm.String" Nullable="true" MaxLength="32" Unicode="true" FixedLength="false" />
+        <Property Name="SessionRoom" Type="Edm.String" Nullable="true" MaxLength="64" Unicode="true" FixedLength="false" />
+        <Property Name="SessionPrerequisites" Type="Edm.String" Nullable="true" MaxLength="512" Unicode="true" FixedLength="false" />
+        <Property Name="SessionLevel" Type="Edm.String" Nullable="true" MaxLength="10" Unicode="false" FixedLength="false" />
+        <Property Name="SessionURL" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="SessionEvalURL" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <NavigationProperty Name="PASS_OData_Orator_Event" Relationship="OratorModelNS.FK_PASS_OData_Orator_Session_PASS_OData_Orator_Event" FromRole="PASS_OData_Orator_Session" ToRole="PASS_OData_Orator_Event" />
+        <NavigationProperty Name="PASS_OData_Orator_SessionSpeaker" Relationship="OratorModelNS.FK_PASS_OData_Orator_SessionSpeaker_PASS_OData_Orator_Session" FromRole="PASS_OData_Orator_Session" ToRole="PASS_OData_Orator_SessionSpeaker" />
+        <NavigationProperty Name="PASS_OData_Orator_SessionFile" Relationship="OratorModelNS.FK_PASS_OData_Orator_SessionFile_PASS_OData_Orator_Session" FromRole="Session" ToRole="PASS_OData_Orator_SessionFile" />
+      </EntityType>
+      <EntityType Name="SessionSpeaker">
+        <Key>
+          <PropertyRef Name="SpeakerID" />
+        </Key>
+        <Property Name="EventID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="SessionID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="SpeakerID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="SpeakerName" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="true" FixedLength="false" />
+        <Property Name="SpeakerURL" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="SpeakerImageURL" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <Property Name="SpeakerDescription" Type="Edm.String" Nullable="true" MaxLength="2048" Unicode="false" FixedLength="false" />
+        <NavigationProperty Name="PASS_OData_Orator_Event" Relationship="OratorModelNS.FK_PASS_OData_Orator_SessionSpeaker_PASS_OData_Orator_Event" FromRole="PASS_OData_Orator_SessionSpeaker" ToRole="PASS_OData_Orator_Event" />
+        <NavigationProperty Name="PASS_OData_Orator_Session" Relationship="OratorModelNS.FK_PASS_OData_Orator_SessionSpeaker_PASS_OData_Orator_Session" FromRole="PASS_OData_Orator_SessionSpeaker" ToRole="PASS_OData_Orator_Session" />
+      </EntityType>
+      <EntityType Name="SessionFile">
+        <Key>
+          <PropertyRef Name="EventID" />
+          <PropertyRef Name="SessionID" />
+          <PropertyRef Name="FileID" />
+        </Key>
+        <Property Name="EventID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="SessionID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="FileID" Type="Edm.Int32" Nullable="false" />
+        <Property Name="FileName" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="true" FixedLength="false" />
+        <Property Name="FileURL" Type="Edm.String" Nullable="true" MaxLength="256" Unicode="false" FixedLength="false" />
+        <NavigationProperty Name="PASS_OData_Orator_Event" Relationship="OratorModelNS.FK_PASS_OData_Orator_SessionFile_PASS_OData_Orator_Event" FromRole="PASS_OData_Orator_SessionFile" ToRole="Event" />
+        <NavigationProperty Name="PASS_OData_Orator_Session" Relationship="OratorModelNS.FK_PASS_OData_Orator_SessionFile_PASS_OData_Orator_Session" FromRole="PASS_OData_Orator_SessionFile" ToRole="Session" />
+      </EntityType>
+      <Association Name="FK_PASS_OData_Orator_Session_PASS_OData_Orator_Event">
+        <End Role="PASS_OData_Orator_Event" Type="OratorModelNS.Event" Multiplicity="1" />
+        <End Role="PASS_OData_Orator_Session" Type="OratorModelNS.Session" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="PASS_OData_Orator_Event">
+            <PropertyRef Name="EventID" />
+          </Principal>
+          <Dependent Role="PASS_OData_Orator_Session">
+            <PropertyRef Name="EventID" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="FK_PASS_OData_Orator_SessionSpeaker_PASS_OData_Orator_Event">
+        <End Role="PASS_OData_Orator_Event" Type="OratorModelNS.Event" Multiplicity="1" />
+        <End Role="PASS_OData_Orator_SessionSpeaker" Type="OratorModelNS.SessionSpeaker" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="PASS_OData_Orator_Event">
+            <PropertyRef Name="EventID" />
+          </Principal>
+          <Dependent Role="PASS_OData_Orator_SessionSpeaker">
+            <PropertyRef Name="EventID" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="FK_PASS_OData_Orator_SessionSpeaker_PASS_OData_Orator_Session">
+        <End Role="PASS_OData_Orator_Session" Type="OratorModelNS.Session" Multiplicity="1" />
+        <End Role="PASS_OData_Orator_SessionSpeaker" Type="OratorModelNS.SessionSpeaker" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="PASS_OData_Orator_Session">
+            <PropertyRef Name="SessionID" />
+          </Principal>
+          <Dependent Role="PASS_OData_Orator_SessionSpeaker">
+            <PropertyRef Name="SessionID" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="FK_PASS_OData_Orator_SessionFile_PASS_OData_Orator_Event">
+        <End Role="Event" Type="OratorModelNS.Event" Multiplicity="1" />
+        <End Role="PASS_OData_Orator_SessionFile" Type="OratorModelNS.SessionFile" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Event">
+            <PropertyRef Name="EventID" />
+          </Principal>
+          <Dependent Role="PASS_OData_Orator_SessionFile">
+            <PropertyRef Name="EventID" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+      <Association Name="FK_PASS_OData_Orator_SessionFile_PASS_OData_Orator_Session">
+        <End Role="Session" Type="OratorModelNS.Session" Multiplicity="1" />
+        <End Role="PASS_OData_Orator_SessionFile" Type="OratorModelNS.SessionFile" Multiplicity="*" />
+        <ReferentialConstraint>
+          <Principal Role="Session">
+            <PropertyRef Name="SessionID" />
+          </Principal>
+          <Dependent Role="PASS_OData_Orator_SessionFile">
+            <PropertyRef Name="SessionID" />
+          </Dependent>
+        </ReferentialConstraint>
+      </Association>
+    </Schema>
+  </edmx:DataServices>
+</edmx:Edmx>

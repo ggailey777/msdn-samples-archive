@@ -1,0 +1,213 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=C9973DA951AE6202C9B348379A1BE49D" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/67b74b86-a273-4ad7-9ed5-0f97276412eaCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=F576C687BC536B84D6E5B3246EE39B49" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Connect to Azure Mobile Services using Visual Studio 2013</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Connect to Azure Mobile Services using Visual Studio 2013</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows Store, Visual Studio 2013, Windows Azure Mobile Services, Windows Store app
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            push notifications, mobile application development, Windows Azure Mobile Services, data and storage
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Cloud, Windows RT
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">4/21/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/Connect-to-Windows-Azure-3a8fc1ee">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h2>Introduction</h2>
+<p>This Windows Store sample application supports the <strong>Adding a mobile service</strong> (<a href="http://go.microsoft.com/fwlink/p/?LinkID=313305" >XAML and C#/VB</a> or
+<a href="http://go.microsoft.com/fwlink/p/?LinkId=313306" >HTML/JavaScript</a>) topics in the Windows Dev Center for Windows Store apps. This topic shows you how to use Visual Studio 2013 to connect to Azure Mobile Services for data storage in
+ a Windows Store app. The Windows Store app in this Visual Studio 2013 project initially stores inserted data in an in-memory collection. By following the tutorial, you replace the in-memory collection with Mobile Services for data storage and access. Subsequent
+ tutorials further modify this project to send push notifications by using Mobile Services.</p>
+<h2>Prerequisites</h2>
+<ul>
+<li>Microsoft Visual Studio 2013. </li><li>Active Microsoft Azure account. <br>
+If you don't have an account, you can create a free trial account in just a couple of minutes. For details, see
+<a href="http://go.microsoft.com/fwlink/p/?LinkId=301492" >Microsoft Azure Free Trial</a>.
+</li><li>This GetStartedWithMobileServices project, a Windows Store app that will be modified to leverage Mobile Services for data storage.
+</li></ul>
+<h2>Building and running the initial sample</h2>
+<ol>
+<li>In Visual Studio 2013, open the sample solution GetStartedWithData. </li><li>Press F5 to build and start this sample.<br>
+<img alt=""> </li><li>Enter text in <strong>Insert a TodoItem</strong> and click <strong>Save</strong>.
+<br>
+Added items appear as a checkbox item in a list in the second column, along with the assigned item ID.
+</li><li>Stop debugging, and then press F5 to run the app again.<br>
+Notice that the previously added items are no longer there, because they were only stored in memory.
+</li></ol>
+<h2>Updating the app to leverage Mobile Services</h2>
+<p>To enable the app to leverage Mobile Services for cloud-based data storage instead of local or in-memory storage, complete the
+<strong>Quickstart: Adding a mobile service</strong> (<a href="http://go.microsoft.com/fwlink/p/?LinkID=313305" >XAML and C#/VB</a> or
+<a href="http://go.microsoft.com/fwlink/p/?LinkId=313306" >HTML/JavaScript</a>). This topic walk you through the following steps.</p>
+<ol>
+<li>Download and run the project. </li><li>Create a new mobile service. </li><li>Add a new table for data storage. </li><li>Update the app to use Mobile Services. </li><li>Test the app against the new mobile service. </li><li>Modify the query to filter out completed items. </li></ol>
+<p>Note that once you have an active Windows Azure subscription, all of these steps in these tutorials are performed in the Visual Studio 2013 development environment. Once you have updated the app, it uses Mobile Services to store and retrieve data instead
+ of using local or in-memory storage.</p>
+<h2>Running the app against Mobile Services</h2>
+<ol>
+<li>Press F5 to start the app. </li><li>Enter text in <strong>Insert a TodoItem</strong> and click <strong>Save</strong>.
+</li><li>Stop debugging, and then press F5 to run the app again.<br>
+Notice that the&nbsp; previously added items are restored after the app loads. </li><li>(Optional) Using an HTTP message inspection program, like <a href="http://www.fiddler2.com/fiddler2/">
+Fiddler</a>, repeat Step 2 and review the insert request sent to the mobile service, then click
+<strong>Refresh</strong> and again review the query request that is sent to the mobile service.
+</li></ol>
+<h2>More Information</h2>
+<p>For more information about Mobile Services and to find other tutorials for Windows Store app and other mobile device platforms, see the
+<a href="http://go.microsoft.com/fwlink/p/?LinkID=261838">Mobile Services developer center</a> on WindowsAzure.com.</p>
+
+</div>
+
+
+    </div>
+</body>
+</html>

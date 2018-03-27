@@ -1,0 +1,52 @@
+﻿<Page
+    x:Class="GetStartedWithData.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:GetStartedWithData"
+    xmlns:phone="Wi"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock Text="GetStartedWithData" Style="{StaticResource SubheaderTextBlockStyle}" Margin="12,0"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="4*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Enter some text below and click Save to insert a new TodoItem item into your database" TextWrapping="Wrap" Margin="12"/>
+            <TextBox Grid.Row="1" Grid.Column="0" Name="TextInput" Text="" />
+            <Button Grid.Row ="1" Grid.Column="1" Name="ButtonSave" Click="ButtonSave_Click">Save</Button>
+            <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Text="Click refresh below to load the unfinished TodoItems from your database. Use the checkbox to complete and update your TodoItems" TextWrapping="Wrap" Margin="12" />
+            <Button Grid.Row="3" Grid.ColumnSpan="2" Name="ButtonRefresh" Click="ButtonRefresh_Click">Refresh</Button>
+            <ListView ItemsSource="{Binding Items}" Grid.Row="4" Grid.ColumnSpan="2" Name="ListItems">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <StackPanel Orientation="Horizontal">
+                            <CheckBox Name="CheckBoxComplete" Checked="CheckBoxComplete_Checked" IsThreeState="False" IsChecked="{Binding Complete}" Content="{Binding Text}" Margin="10,5" VerticalAlignment="Center"/>                            
+                        </StackPanel>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>

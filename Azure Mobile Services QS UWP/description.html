@@ -1,0 +1,207 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+    <head><link rel="stylesheet" type="text/css" href="description/Combined.css,0:HeaderFooterSprite,0:Header.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=62DBC035A4A8AD76676CA11B61CB6C59" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+<link rel="stylesheet" type="text/css" href="description/7164bbaa-e29d-4ba5-a77a-96de91c2babeCombined.css,0:HeaderFooterSprite,0:Footer.NonMtps,1:LinkList;/Areas/Centers/Themes/StandardDevCenter/Content:0,/Areas/Epx/Themes/Base/Content:1&amp;amp;hashKey=60546B18CCC226DE9D7A404EDD74623E" xmlns="http://www.w3.org/1999/xhtml" />
+<link type="text/css" rel="stylesheet" xmlns="http://www.w3.org/1999/xhtml" />
+
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Get started with data in Azure Mobile Services for universal Windows apps</title>
+        <link href="description/Galleries.css" type="text/css" rel="Stylesheet" /><link href="description/Layout.css" type="text/css" rel="Stylesheet" /><link href="description/Brand.css" type="text/css" rel="Stylesheet" />
+        <link href="description/iframedescription.css" rel="Stylesheet" type="text/css" />
+        <script src="description/offline.js" type="text/javascript"></script>
+        <style type="text/css">
+            #projectInfo {
+                overflow: auto;
+            }
+            #longDesc {
+                clear:both;
+                margin: 25px 0 10px 0;
+            }
+
+            #SampleIndexList{
+                margin-left: 15px;
+            }
+        </style>
+    </head>
+<body>
+    <div id="offlineDescription">
+        <h1>Get started with data in Azure Mobile Services for universal Windows apps</h1>
+        <br/>
+        <div id="projectInfo">
+            <div class="section">
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Technologies">Technologies</label>
+                        <div id="Technologies">
+                            Windows RT, azure mobile services, Mobile Services, Windows Phone Store
+                        </div>
+                    </div>
+                    <div class="itemBarLong tagsContainer">
+                        <label for="Topics">Topics</label>
+                        <div id="Topics">
+                            mobile application development, azure mobile services, universal windows app
+                        </div>
+                    </div>
+                <div class="itemBarLong">
+                    <label for="Platforms">Platforms</label>
+                    <div id="Platforms">
+                        Cloud, Phone, Data, Windows RT
+                    </div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="Requirements">Requirements</label>
+                    <div id="Requirements">
+                        
+                    </div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Primary language</label>
+                    <div id="LastUpdated">en-US</div>
+                </div>
+                <div class="itemBar">
+                    <label for="LastUpdated">Updated</label>
+                    <div id="LastUpdated">8/26/2014</div>
+                </div>
+                <div class="itemBarLong">
+                    <label for="License">License</label>
+                    <div id="License">
+                        <a href="license.rtf">MS-LPL</a></div>
+                </div>
+                <div class="itemBar">
+                    <div class="viewonlinecont">
+                        <a data-link="online" href="http://code.msdn.microsoft.com/Get-Started-with-Data-in-0e863e57">View this sample online</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+                   
+<script type="text/javascript">
+    function initializePage() {
+        var otherTabClass = 'otherTab';
+        var hiddenPreClass = 'hidden';
+
+        var htmlDecode = function(encodedData) {
+            var decodedData = "";
+            if (encodedData) {
+                var div = document.createElement('div');
+                div.innerHTML = encodedData;
+                decodedData = div.firstChild.nodeValue.replace( /\\r\\n/ig , '\r\n');
+            }
+            return decodedData;
+        };
+                
+        Galleries.iterateElem(Galleries.findElem(null, 'div', 'scriptcode'), function (index, scriptBlock) {
+            var titleElem = Galleries.findElem(scriptBlock, 'div', 'title')[0];
+            var labelElems = Galleries.findElem(titleElem, 'span');
+            if (labelElems.length == 0) {
+                labelElems = titleElem;
+            }
+            var languageSpans = Galleries.findElem(scriptBlock, 'span', 'hidden');
+            var pres = Galleries.findElem(scriptBlock, 'pre');
+            if (languageSpans.length > 0 && pres.length > 1) {
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    var languageSpan = languageSpans[index];
+                            
+                    elem.code = codePre.innerHTML.replace( /(\r(\n)?)|((\r)?\n)/ig , '\\r\\n');
+                            
+                    codePre.className = codePre.className.replace(hiddenPreClass, '');
+                            
+                    languageSpan.parentNode.removeChild(languageSpan);
+                });
+
+                pres = Galleries.findElem(scriptBlock, 'pre');
+                Galleries.iterateElem(labelElems, function(index, elem) {
+                    var codePre = pres[index];
+                    var labelSpan = elem;
+                    if (index == 0) {
+                        scriptBlock.activeTab = 0;
+                    }
+                    else {
+                        labelSpan.className += otherTabClass;
+                        codePre.className += hiddenPreClass;
+                    }
+                    Galleries.attachEventHandler(labelSpan, 'click', function(e) {
+                        var activeTab = scriptBlock.activeTab;
+                        labelElems[activeTab].className += otherTabClass;
+                        pres[activeTab].className += hiddenPreClass;
+
+                        codePre.className = codePre.className.replace(hiddenPreClass, '');
+                        labelSpan.className = labelSpan.className.replace(otherTabClass, '');
+                        scriptBlock.activeTab = index;
+                    });
+                });
+
+                var preview = Galleries.findElem(scriptBlock, 'div', 'preview');
+                if (preview.length == 0) {
+                    preview.push(pres[pres.length - 1]);
+                }
+                Galleries.iterateElem(preview, function(index, elem) {
+                    elem.parentNode.removeChild(elem);
+                });
+
+                if (window.clipboardData && clipboardData.setData) {
+                    var copyLink = document.createElement('a');
+                    copyLink.href = 'javascript:void(0);';
+                    copyLink.className = 'copyCode';
+                    copyLink.innerHTML = 'Copy code';
+                    Galleries.attachEventHandler(copyLink, 'click', function (e) {
+                        clipboardData.setData("Text", htmlDecode(labelElems[scriptBlock.activeTab].code));
+                        return false;
+                    });
+                    scriptBlock.insertBefore(copyLink, scriptBlock.childNodes[0]);
+                }
+            }
+        });
+    }
+
+    Galleries.onWindowLoad(function(){
+        initializePage();
+    });
+
+</script>
+<div id="longDesc">
+    
+<h2>Introduction</h2>
+<p>This universal Windows 8.1 app project sample shows you how to use Azure Mobile Services to leverage data in a universal Windows app project for both Windows Store and Windows Phone Store apps. The app project uses a shared view-model class to initially
+ store inserted data in an in-memory collection. By following the tutorial, you replace the in-memory collection in the view-model with Mobile Services for data storage and access.</p>
+<h2>Prerequisites</h2>
+<p>Completing the project requires the following:</p>
+<ul>
+<li>Visual Studio 2013 Update 2, which supports universal Windows app projects. </li><li>An active Microsoft Azure account. </li></ul>
+<h2>Building and running the initial universal Windows app</h2>
+<ol>
+<li>In Visual Studio 2013 Update 2, open the sample solution GetStartedWithData. </li><li>Press F5 to build and start the Windows Store 8.1 app.<br>
+<img id="65343" src="description/mobile-quickstart-startup.png" alt="" width="600" height="214">
+</li><li>Enter text in the textbox and click <strong>Save</strong>. <br>
+Added items appear as a checkbox item in&nbsp;the list. </li><li>Stop debugging, and then press F5 to run the app again.<br>
+Notice that the previously added items are no longer there, because they were only stored in memory.
+</li><li>Right-click the Windows Phone 8.1 project, click <strong>Set as Start-up Project</strong>, then press F5 to start the Windows Phone Store app.
+<br>
+<img id="68548" src="description/mobile-quickstart-startup-wp8.png" alt="" width="248" height="465">
+</li><li>Repeat steps 3 and 4 to verify that the sample behaves the same way. <br>
+The shared view-model is used by each project for data binding to the in-memory collection.&nbsp;
+</li></ol>
+<h2>Updating the app to leverage Mobile Services</h2>
+<p>To enable the app to leverage Mobile Services for cloud-based data storage instead of local or in-memory storage, you must complete the following steps:</p>
+<ol>
+<li>Download this universal Windows 8.1 app solution </li><li>Create the mobile service </li><li>Add a data table for storage </li><li>Update this app to use Mobile Services (following the code comments in the shared code files)
+</li><li>Test the app against the live mobile service </li></ol>
+<p>Once you have updated the app, it will use Mobile Services to store and retrieve data instead of using local or in-memory storage. Both apps will have access to the same stored data.</p>
+<h2>Running the app against Mobile Services</h2>
+<ol>
+<li>Press F5 to start the app. </li><li>Enter text in the textbox and click <strong>Save</strong>. </li><li>Stop debugging, and then press F5 to run the app again.<br>
+Notice that the&nbsp; previously added items are restored after the app loads. </li><li>Switch the start-up project and verify that the same stored data is displayed in the other version of the app.
+</li></ol>
+<h2>More Information</h2>
+<p>For more information about Mobile Services and to find the other tutorials, see the
+<a href="http://go.microsoft.com/fwlink/p/?LinkID=261838">Mobile Services developer center</a> on azure.com.</p>
+
+</div>
+
+
+    </div>
+</body>
+</html>
